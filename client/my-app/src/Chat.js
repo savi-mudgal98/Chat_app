@@ -26,7 +26,14 @@ function Chat({ socket, username, room }) {
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
+
+      
     });
+
+    return function cleanup() {
+      socket.removeListener("receive_message");
+    };
+
   }, [socket]);
 
   return (

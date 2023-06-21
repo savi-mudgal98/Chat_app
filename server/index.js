@@ -19,7 +19,7 @@ const io= new Server(server, {
 
 io.on("connection", (socket)=> {
     console.log(`user connected: ${socket.id}`);
-})
+
 
 socket.on("join_room", (data) => {
     socket.join(data);
@@ -34,6 +34,8 @@ socket.on("join_room", (data) => {
 socket.on("disconnect", ()=> {
     console.log("USER DISCONNECTED", socket.id);
 })
+
+});
 
 server.listen(3001, () => {
     console.log("SERVER RUNNING");
