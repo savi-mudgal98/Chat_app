@@ -1,10 +1,10 @@
 import './App.css';
 import React from "react";
- import io from "socket.io-client";
- import Chat from "./Chat";
+import io from "socket.io-client";
+import Chat from "./Chat";
 
-const socket = io.connect("http://localhost:3001");
-
+const API= process.env.API_URL || "http://localhost:3001";
+const socket = io.connect(API);
 
 function App() {
   
